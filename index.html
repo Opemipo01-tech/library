@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Library</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="library"></div>
+    <button class="new-book">New Book</button>
+    <div class="form-container">
+        <p class="book">Book Details</p>
+        <form action="">
+            <div id="flex">
+                <div class="book-name" id="space">
+                    <label for="title" >Book Title : </label>
+                    <input type="text" id="title" name="title" >
+        </div>
+        
+        <div class="book-author"id="space">
+            <label for="author">Author : </label>
+            <input type="text" id="author" name="author" >
+        </div>
+        
+        <div class="amt-pages" id="space">
+            <label for="pages">No. of Pages : </label>
+            <input type="number" name="pages" id="pages" >
+        </div>
+    </div>
+    <div class="read-stat">
+        <fieldset>
+            <legend>Read status</legend>
+            <div class="select">
+                <div class="red">
+                    <label for="read">Read : </label>
+                    <input type="radio" name="readStatus" id="read" value="read" >
+                </div>
+                
+                <div class="not-red">
+                    <label for="not-read">Not Read : </label>
+                    <input type="radio" name="readStatus" id="not-read" value="not read">
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    
+    <button type="submit" class="submit">Submit</button>
+</form>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
