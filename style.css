@@ -3,7 +3,7 @@ body{
     position: relative;
 }
 .book-card{
-    background-color: white;
+    background-color:black;
     color: red;
     padding: 10px;
     margin: 5px;
@@ -12,15 +12,16 @@ body{
 .form-container{
     background-color: white;
     padding: 10px;
-    margin: 5px;
+    margin: 0px auto;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
+    width: 600px;
     gap: 16px;
     display: none;
-    position: absolute;
-    top: 20px;
-    left: 200px;
+    /* position: absolute; */
+    /* top: 20px;
+    left: 200px; */
     box-shadow: 0px 0px 10px black;
 }
 .book{
@@ -73,6 +74,9 @@ label{
     margin-top: 5px;
     cursor: pointer;
 }
+.submit:active{
+    background-color: blue;
+}
 input:focus{
     outline: none;
 }
@@ -83,8 +87,22 @@ input:focus{
     background-color:white;
     color: red;
     padding: 10px;
+    cursor: pointer;
 }
 .remove-book:hover{
     background-color:black ;
+    color: white;
+}
+.change-status{
+    border-radius: 5px;
+    border: 1px solid;
+    background-color:white;
+    color: red;
+    padding: 10px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+.change-status:hover{
+      background-color:black ;
     color: white;
 }
