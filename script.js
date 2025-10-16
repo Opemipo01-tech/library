@@ -1,27 +1,32 @@
 const myLibrary = [];
 
-function Book(title,author,pages,readStatus,id) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages; 
-    this.readStatus = readStatus; 
+
+ class Book{
+    constructor(title,author,pages,readStatus,id) {
+     this.title = title;
+     this.author = author;
+     this.pages = pages; 
+     this.readStatus = readStatus; 
     this.id = id;
-}
-Book.prototype.changeStatus = function() {
-    if (this.readStatus === "Read"){
-         this.readStatus = "Not Read";
-    }  else if (this.readStatus === "Not Read"){
-        this.readStatus = "Read";
     }
-}
+
+    changeStatus() {
+        if (this.readStatus === "Read"){
+       this.readStatus = "Not Read";
+            } 
+    else if (this.readStatus === "Not Read"){
+       this.readStatus = "Read";
+           }
+    }
+ }
+
 
 function addBookToLibrary(title,author,pages,readStatus) {
   const book = new Book(title,author ,pages,readStatus,crypto.randomUUID());
   myLibrary.push(book);
 }
 
-// addBookToLibrary("Atomic Habits", "James Clear", 320, "Read");
-// addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 310, "Not read");
+
 
 
 function displayBooks() {
