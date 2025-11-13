@@ -11,11 +11,11 @@ const myLibrary = [];
     }
 
     changeStatus() {
-        if (this.readStatus === "Read"){
-       this.readStatus = "Not Read";
-            } 
-    else if (this.readStatus === "Not Read"){
+        if (this.readStatus === "Not Read"){
        this.readStatus = "Read";
+            } 
+    else if (this.readStatus === "Read"){
+       this.readStatus = "Not Read";
            }
     }
  }
@@ -83,6 +83,7 @@ function displayBooks() {
         if(index > -1){
             myLibrary[index].changeStatus();
         } 
+        console.log("clicked")
         displayBooks();
     })
 
@@ -96,7 +97,54 @@ function displayBooks() {
 displayBooks();
 
 const formContainer = document.querySelector(".form-container");
+    const bookTitle = document.querySelector("#title");
+    const author = document.querySelector("#author");
+    const noOfPages = document.querySelector("#pages");
+    const readStatus = document.querySelector("input[name='readStatus']");
 
+    function showTitleError () {
+        if(bookTitle.validity.valueMissing) {
+            bookTitle.setCustomValidity("Book Title cannot be left empty");
+            return false;
+        } else if (bookTitle.validity.tooShort) {
+            bookTitle.setCustomValidity(`Minimum number of 2 characters for the book title is required, you wrote only ${bookTitle.value.length} character`);
+            return false
+        } else {
+            bookTitle.setCustomValidity("");
+            return true;
+        }
+    }
+    function showAuthorError () {
+        if (author.validity.valueMissing) {
+            author.setCustomValidity("Author's name cannot be empty");
+            return false;
+        } else if (author.validity.tooShort) {
+            author.setCustomValidity("minimum of 3 characters is required for the author's name");
+            return false;
+        } else {
+            author.setCustomValidity("");
+            return true;
+        }
+        };
+
+        function pagesError () {
+        if (noOfPages.validity.valueMissing) {
+            noOfPages.setCustomValidity("No. of pages cannot be left empty");
+            return false
+        } else if (noOfPages.validity.rangeUnderflow) {
+             noOfPages.setCustomValidity("No. of pages must be greater than or equal to 20")
+             return false
+        } else {
+            noOfPages.setCustomValidity("");
+            return true
+        }
+        };
+
+    
+     bookTitle.addEventListener("input", showTitleError );
+      author.addEventListener("input", showAuthorError );
+      noOfPages.addEventListener("input", pagesError);
+      
 const addBook = document.querySelector(".new-book");
 addBook.addEventListener("click",()=> {
     formContainer.style.display = "block";
@@ -106,6 +154,13 @@ const form = document.querySelector("form");
 form.addEventListener("submit", (event) => {
     event.preventDefault();
     
+    const isTitleValid = showTitleError();
+    const isAuthorValid = showAuthorError();
+    const isPagesValid = pagesError();
+  
+    
+    if (isAuthorValid && isPagesValid && isTitleValid) {
+
     const titleInput = document.querySelector("#title");
     const authorInput = document.querySelector("#author");
     const pagesInput = document.querySelector("#pages");
@@ -122,5 +177,5 @@ form.addEventListener("submit", (event) => {
     form.reset();
     
     formContainer.style.display = "none";
+    }
 });
-

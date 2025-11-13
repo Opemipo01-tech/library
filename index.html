@@ -15,17 +15,17 @@
             <div id="flex">
                 <div class="book-name" id="space">
                     <label for="title" >Book Title : </label>
-                    <input type="text" id="title" name="title" >
+                    <input type="text" id="title" name="title" minlength="2"  required>
         </div>
         
         <div class="book-author"id="space">
             <label for="author">Author : </label>
-            <input type="text" id="author" name="author" >
+            <input type="text" id="author" name="author" minlength="3"  required>
         </div>
         
         <div class="amt-pages" id="space">
             <label for="pages">No. of Pages : </label>
-            <input type="number" name="pages" id="pages" >
+            <input type="number" name="pages" id="pages" min="20" required >
         </div>
     </div>
     <div class="read-stat">
@@ -34,12 +34,12 @@
             <div class="select">
                 <div class="red">
                     <label for="read">Read : </label>
-                    <input type="radio" name="readStatus" id="read" value="Read" >
+                    <input type="radio" name="readStatus" id="read" value="Read"  required>
                 </div>
                 
                 <div class="not-red">
                     <label for="not-read">Not Read : </label>
-                    <input type="radio" name="readStatus" id="not-read" value="Not read">
+                    <input type="radio" name="readStatus" id="not-read" value="Not read" required>
                 </div>
             </div>
         </fieldset>
